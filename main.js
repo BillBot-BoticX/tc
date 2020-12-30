@@ -68,7 +68,7 @@ const { Menu, Tray } = require("electron");
 let tray = null;
 
 app.whenReady().then(() => {
-  tray = new Tray("./Images/TC LOGO PNG 3X.png");
+  tray = new Tray(__dirname + "/Images/TC LOGO PNG 3X.png");
   const contextMenu = Menu.buildFromTemplate([
     { label: "DISABLE", type: "radio" },
     { label: "LOGOUT", type: "radio" },

@@ -1,7 +1,7 @@
 {
   "name": "time-capture",
-  "version": "1.0.14",
-  "icon": "./Images/LOGO.ico",
+  "version": "1.0.15",
+  "icon": "TC LOGO PNG 3X.png",
   "description": "",
   "main": "main.js",
   "repository": {
