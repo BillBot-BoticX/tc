@@ -27,7 +27,6 @@ ipcRenderer.on("update_downloaded", () => {
 function closeNotification() {
   notification.classList.add("hidden");
 }
-
 function restartApp() {
   ipcRenderer.send("restart_app");
 }

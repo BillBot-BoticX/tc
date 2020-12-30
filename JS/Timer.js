@@ -29,16 +29,4 @@ setInterval(function () {
 
 setInterval(function () {
   idleTime = 0;
-  console.log(idle);
-  app.whenReady().then(showNotification);
 }, 60000);
-
-const { Notification } = require("electron");
-function showNotification() {
-  const notification = {
-    title: "TIME CAPTURE",
-    body: windowclass,
-    icon: "./Images/TC LOGO PNG 3X.png",
-  };
-  new Notification(notification).show();
-}

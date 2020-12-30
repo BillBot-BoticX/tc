@@ -80,6 +80,20 @@ app.whenReady().then(() => {
   console.log(contextMenu.items[2].checked);
 });
 
+setInterval(function () {
+  app.whenReady().then(showNotification);
+}, 10000);
+
+const { Notification } = require("electron");
+function showNotification() {
+  const notification = {
+    title: "TIME CAPTURE",
+    body: windowclass,
+    icon: "./Images/TC LOGO PNG 3X.png",
+  };
+  new Notification(notification).show();
+}
+
 //git init
 //git remote add origin https://github.com/[YOUR USERNAME]/[YOUR REPO NAME].git
 
