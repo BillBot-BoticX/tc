@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
-
+const { autoUpdater } = require("electron-updater");
 let mainWindow, childWindow;
 
 function createWindow() {
@@ -17,19 +17,18 @@ function createWindow() {
   mainWindow.loadURL("https://www.google.co.in/");
   mainWindow.loadFile("./HTML/index.html");
 
-  childWindow = new BrowserWindow({
-    width: 300,
-    height: 500,
-    parent: mainWindow,
-    dialog: true,
-    frame: false,
-  });
-  childWindow.loadFile("./HTML/Activation.html");
+  // childWindow = new BrowserWindow({
+  //   width: 300,
+  //   height: 500,
+  //   parent: mainWindow,
+  //   dialog: true,
+  //   frame: false,
+  // });
+  // childWindow.loadFile("./HTML/Activation.html");
 
   mainWindow.on("closed", function () {
     mainWindow = null;
   });
-  autoUpdater.checkForUpdatesAndNotify();
 }
 
 app.on("ready", () => {

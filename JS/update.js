@@ -5,6 +5,8 @@ const notification = document.getElementById("notification");
 const message = document.getElementById("message");
 const restartButton = document.getElementById("restart-button");
 
+autoUpdater.checkForUpdatesAndNotify();
+
 ipcMain.on("app_version", (event) => {
   event.sender.send("app_version", { version: app.getVersion() });
 });
