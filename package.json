@@ -1,6 +1,6 @@
 {
   "name": "time-capture",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "icon": "./Images/LOGO.ico",
   "description": "",
   "main": "main.js",
