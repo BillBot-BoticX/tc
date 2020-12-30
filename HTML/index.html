@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+  <title>Time Capture</title>
+  <link rel="stylesheet" href="../CSS/Materiazed_min.css" />
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div id="ribbion">
+    <div class="controlsContainer">
+      <div class="controls max">
+        <i class="material-icons">aspect_ratio</i>
+      </div>
+      <div class="controls max">
+        <i class="material-icons">minimize</i>
+      </div>
+      <div class="controls close">
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+  </div>
+  <p id="version"></p>
+  <div id="notification" class="hidden">
+    <p id="message"></p>
+    <button id="close-button" onClick="closeNotification()">Close</button>
+    <button id="restart-button" onClick="restartApp()" class="hidden">
+      Restart
+    </button>
+  </div>
+
+  <div>
+    <div>ACTIVE APP</div>
+    <div id="AppName"></div>
+  </div>
+  <iframe src="http://timecapture.ap-south-1.elasticbeanstalk.com/"></iframe>
+  <script>
+    require("../JS/update.js");
+    require("../JS/Timer.js");
+    require("../JS/IconTray.js");
+  </script>
+</body>

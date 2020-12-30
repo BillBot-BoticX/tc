@@ -1,0 +1,65 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+  background-color: #eaeaea;
+  text-align: center;
+}
+#notification {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.hidden {
+  display: none;
+}
+#ribbion {
+  text-align: right;
+  position: relative;
+  height: 40px;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  background-color: grey;
+  -webkit-app-region: drag;
+  box-shadow: rgb(156, 155, 155) 2px 2px 12px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.controls {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+}
+.close:hover {
+  background-color: rgb(252, 45, 8);
+  box-shadow: rgb(66, 66, 66) 2px 2px 12px;
+}
+.max:hover {
+  background-color: rgb(252, 45, 8);
+  box-shadow: rgb(51, 51, 51) 2px 2px 12px;
+}
+.controlsContainer {
+  -webkit-app-region: no-drag;
+  position: fixed;
+  top: 8px;
+  right: 10px;
+}
+iframe {
+  position: absolute;
+  height: 93%;
+  width: 100%;
+  left: 0px;
+  top: 40px;
+}
