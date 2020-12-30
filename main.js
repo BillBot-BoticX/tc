@@ -48,3 +48,15 @@ app.on("activate", function () {
     createWindow();
   }
 });
+
+//git init
+//git remote add origin https://github.com/[YOUR USERNAME]/[YOUR REPO NAME].git
+
+// git add .
+// git commit -m "Create auto-updating app"
+// git push -u origin master
+
+//git add .
+//git commit -m "Version 1.0.1 update"
+//git push origin master
+//npm run deploy
