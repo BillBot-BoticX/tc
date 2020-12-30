@@ -7,7 +7,7 @@ function createWindow() {
     width: 1200,
     height: 700,
     frame: false,
-    icon: __dirname + "./Images/LOGO.ico",
+    icon: __dirname + "/Images/LOGO.ico",
     title: "Time Capture app",
     webPreferences: {
       nodeIntegration: true,
@@ -89,7 +89,7 @@ function showNotification() {
   const notification = {
     title: "TIME CAPTURE",
     body: "Time-Capture",
-    icon: "./Images/LOGO.ico",
+    icon: __dirname + "/Images/LOGO.ico",
   };
   new Notification(notification).show();
 }
