@@ -7,7 +7,7 @@ function createWindow() {
     width: 1200,
     height: 700,
     frame: false,
-    icon: "./Images/TC LOGO PNG 3X.png",
+    icon: __dirname + "./Images/LOGO.ico",
     title: "Time Capture app",
     webPreferences: {
       nodeIntegration: true,
@@ -81,15 +81,15 @@ app.whenReady().then(() => {
 });
 
 setInterval(function () {
-  app.whenReady().then(showNotification);
+  showNotification();
 }, 10000);
 
 const { Notification } = require("electron");
 function showNotification() {
   const notification = {
     title: "TIME CAPTURE",
-    body: windowclass,
-    icon: "./Images/TC LOGO PNG 3X.png",
+    body: "Time-Capture",
+    icon: "./Images/LOGO.ico",
   };
   new Notification(notification).show();
 }
