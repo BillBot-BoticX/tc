@@ -13,10 +13,11 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
-  // mainWindow.webContents.openDevTools();
+
+  mainWindow.webContents.openDevTools();
   mainWindow.loadURL("https://www.google.co.in/");
   mainWindow.loadFile("./HTML/index.html");
-
+  autoUpdater.checkForUpdatesAndNotify();
   // childWindow = new BrowserWindow({
   //   width: 300,
   //   height: 500,
@@ -45,6 +46,38 @@ app.on("activate", function () {
   if (mainWindow === null) {
     createWindow();
   }
+});
+
+ipcMain.on("app_version", (event) => {
+  event.sender.send("app_version", { version: app.getVersion() });
+});
+
+autoUpdater.on("update-available", () => {
+  mainWindow.webContents.send("update_available");
+});
+
+autoUpdater.on("update-downloaded", () => {
+  mainWindow.webContents.send("update_downloaded");
+});
+
+ipcMain.on("restart_app", () => {
+  autoUpdater.quitAndInstall();
+});
+
+const { Menu, Tray } = require("electron");
+let tray = null;
+
+app.whenReady().then(() => {
+  tray = new Tray("./Images/TC LOGO PNG 3X.png");
+  const contextMenu = Menu.buildFromTemplate([
+    { label: "DISABLE", type: "radio" },
+    { label: "LOGOUT", type: "radio" },
+    { label: "RESTART", type: "radio", checked: true },
+    { label: "OPEN", type: "radio" },
+  ]);
+  tray.setToolTip("TIME CAPTURE");
+  tray.setContextMenu(contextMenu);
+  console.log(contextMenu.items[2].checked);
 });
 
 //git init

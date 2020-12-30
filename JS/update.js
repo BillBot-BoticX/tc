@@ -1,27 +1,8 @@
-const { autoUpdater } = require("electron-updater");
-const { app, ipcMain, ipcRenderer } = require("electron");
+const { ipcRenderer } = require("electron");
 const version = document.getElementById("version");
 const notification = document.getElementById("notification");
 const message = document.getElementById("message");
 const restartButton = document.getElementById("restart-button");
-
-autoUpdater.checkForUpdatesAndNotify();
-
-ipcMain.on("app_version", (event) => {
-  event.sender.send("app_version", { version: app.getVersion() });
-});
-
-autoUpdater.on("update-available", () => {
-  mainWindow.webContents.send("update_available");
-});
-
-autoUpdater.on("update-downloaded", () => {
-  mainWindow.webContents.send("update_downloaded");
-});
-
-ipcMain.on("restart_app", () => {
-  autoUpdater.quitAndInstall();
-});
 
 ipcRenderer.send("app_version");
 ipcRenderer.on("app_version", (event, arg) => {
