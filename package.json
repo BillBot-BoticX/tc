@@ -1,6 +1,6 @@
 {
   "name": "time-capture",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "icon": "TC LOGO PNG 3X.png",
   "description": "",
   "main": "main.js",
@@ -25,7 +25,11 @@
   },
   "dependencies": {
     "active-windows": "^0.1.14",
+    "auto-launch": "^5.0.5",
+    "dotenv": "^8.2.0",
     "electron-updater": "^4.3.5",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
     "windows-active-process": "^1.1.1"
   }
 }

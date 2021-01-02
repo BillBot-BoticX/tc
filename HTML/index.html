@@ -11,13 +11,13 @@
 <body>
   <div id="ribbion">
     <div class="controlsContainer">
-      <div class="controls max">
+      <div id="max" class="controls max">
         <i class="material-icons">aspect_ratio</i>
       </div>
-      <div class="controls max">
+      <div id="min" class="controls max">
         <i class="material-icons">minimize</i>
       </div>
-      <div class="controls close">
+      <div id="close" class="controls close">
         <i class="material-icons">close</i>
       </div>
     </div>
@@ -72,6 +72,7 @@
   </div>
   <iframe src="http://timecapture.ap-south-1.elasticbeanstalk.com/"></iframe>
   <script>
-    require("../JS/Timer.js");
+    require("../JS/update.js");
+    require("../JS/Notification.js");
   </script>
 </body>

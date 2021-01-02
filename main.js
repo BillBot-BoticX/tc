@@ -1,7 +1,12 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const { autoUpdater } = require("electron-updater");
-let mainWindow, childWindow;
 
+//module1 = require("./Database.js");
+
+module1 = require("./JS/Timer.js");
+module2 = require("./JS/auto-launch.js");
+
+let mainWindow, childWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,
@@ -15,7 +20,6 @@ function createWindow() {
   });
 
   mainWindow.webContents.openDevTools();
-  mainWindow.loadURL("https://www.google.co.in/");
   mainWindow.loadFile("./HTML/index.html");
   autoUpdater.checkForUpdatesAndNotify();
   // childWindow = new BrowserWindow({
@@ -27,9 +31,12 @@ function createWindow() {
   // });
   // childWindow.loadFile("./HTML/Activation.html");
 
-  mainWindow.on("closed", function () {
-    mainWindow = null;
+  mainWindow.on("close", function (ev) {
+    //  mainWindow = null;
+    ev.preventDefault(); // prevent quit process
+    ev.sender.hide();
   });
+  return mainWindow;
 }
 
 app.on("ready", () => {
@@ -58,27 +65,41 @@ autoUpdater.on("update-available", () => {
 
 autoUpdater.on("update-downloaded", () => {
   mainWindow.webContents.send("update_downloaded");
+  autoUpdater.quitAndInstall();
 });
 
 ipcMain.on("restart_app", () => {
   autoUpdater.quitAndInstall();
 });
 
+// System Tray
 const { Menu, Tray } = require("electron");
 let tray = null;
-
 app.whenReady().then(() => {
-  tray = new Tray(__dirname + "/Images/TC LOGO PNG 3X.png");
+  tray = new Tray(__dirname + "/TC LOGO PNG 3X.png");
   const contextMenu = Menu.buildFromTemplate([
-    { label: "DISABLE", type: "radio" },
-    { label: "LOGOUT", type: "radio" },
-    { label: "RESTART", type: "radio", checked: true },
-    { label: "OPEN", type: "radio" },
+    {
+      label: "Show",
+      type: "checkbox",
+      click: function () {
+        mainWindow.show();
+      },
+    },
+    {
+      label: "Quit",
+      type: "checkbox",
+      click: function () {
+        mainWindow.destroy();
+      },
+    },
   ]);
   tray.setToolTip("TIME CAPTURE");
   tray.setContextMenu(contextMenu);
-  console.log(contextMenu.items[2].checked);
+  tray.on("click", function () {
+    console.log("clicked");
+  });
 });
+// Tray end
 
 //git init
 //git remote add origin https://github.com/[YOUR USERNAME]/[YOUR REPO NAME].git
