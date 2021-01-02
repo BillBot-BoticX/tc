@@ -30,6 +30,7 @@
     "electron-updater": "^4.3.5",
     "express": "^4.17.1",
     "pg": "^8.5.1",
+    "update-electron-app": "^2.0.1",
     "windows-active-process": "^1.1.1"
   }
 }

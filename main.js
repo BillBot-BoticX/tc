@@ -1,5 +1,16 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
-const { autoUpdater } = require("electron-updater");
+//const { autoUpdater } = require("electron-updater");
+
+const { autoUpdater } = require("electron");
+const server = "https://update.electronjs.org";
+const feed = `${server}/OWNER/REPO/${process.platform}-${
+  process.arch
+}/${app.getVersion()}`;
+
+autoUpdater.setFeedURL("https://github.com/BillBot-BoticX/Time-Capture_test");
+setInterval(() => {
+  autoUpdater.checkForUpdates();
+}, 1 * 60 * 1000);
 
 //module1 = require("./Database.js");
 
