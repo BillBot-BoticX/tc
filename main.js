@@ -32,7 +32,7 @@ function createWindow() {
 
   mainWindow.webContents.openDevTools();
   mainWindow.loadFile("./HTML/index.html");
-  autoUpdater.checkForUpdatesAndNotify();
+  // autoUpdater.checkForUpdatesAndNotify();
   // childWindow = new BrowserWindow({
   //   width: 300,
   //   height: 500,
